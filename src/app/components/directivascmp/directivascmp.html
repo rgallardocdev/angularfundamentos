@@ -1,0 +1,14 @@
+<h1>Directivas component</h1>
+
+<h3 style="color: blue;">Tienes {{deportes.length}} deportes</h3>
+
+@if (deportes.length > 0) {
+    <p>tienes deportes: </p>
+    <ul>
+        @for (_deporte of deportes; track _deporte) {
+            <li>{{ _deporte }}</li>
+        }
+    </ul>
+}@else{
+    <p>no tienes dibujos</p>
+}
