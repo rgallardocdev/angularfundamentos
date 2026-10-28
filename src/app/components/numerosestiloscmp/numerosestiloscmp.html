@@ -13,8 +13,7 @@
 <ul>
     @for (_numero of numeros; track _numero) {
         <li [class.par]="$any(_numero) % 2 == 0"
-            [class.impar]="$any(_numero) % 2 != 0">
-            {{_numero}}</li>
+            [class.impar]="$any(_numero) % 2 != 0">{{_numero}}</li>
     }
 </ul>
 <button (click)="comprobarNumeros()">Comprobar numeros Pares</button>
@@ -25,4 +24,5 @@
 <p>Pares en array: {{arrayPares.join(', ')}}</p>
 <p>Impares en array: {{arrayImpares.join(', ')}}</p>
 
+<button (click)="generarNumero()">Generar numero</button>
 

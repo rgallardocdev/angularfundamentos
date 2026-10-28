@@ -1,0 +1,25 @@
+<h2>Formularios en angular</h2>
+<form #datosCliente="ngForm">
+    <label>Nombre: </label><input type="text" name="cajaNombre" #cajaNombre/>
+    <br><br>
+    <label>Numero: </label><input type="number" name="cajaNumero" #cajaNumero/>
+    <br><br>
+    <button (click)="mostrarNombre()">Mostrar Saludo</button>
+    <p>{{mensaje}}</p>
+    <button (click)="mostrarNumero()">Mostrar Numero</button>
+    <br><br>
+    <label>Numero 1: </label><input type="number" name="cajaNumero1" #cajaNumero1/><br>
+    <label>Numero 2: </label><input type="number" name="cajaNumero2" #cajaNumero2/>
+    <br><br>
+    <button (click)="sumarNumeros(cajaNumero1.value)">Sumar Numeros</button>
+    <p>{{mensajeSuma}}</p>
+    <br><br>
+    <label>Introduzca un nombre: </label><input type="text" name="cajaNombreListado" #cajaNombreListado/>
+    <br><br>
+    <button (click)="mostrarNombreListado()">Mostrar Nombre</button>
+    <ul>
+        @for (_nombre of listadoNombres; track _nombre) {
+            <li>{{_nombre}}</li>
+        }
+    </ul>
+</form>

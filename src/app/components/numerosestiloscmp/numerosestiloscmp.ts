@@ -9,18 +9,23 @@ import { Component, OnInit } from '@angular/core';
 
 export class NumerosEstilosCmp implements OnInit {
 
-    numeros: string[];
+    numeros: number[];
     numerosPares: string;
     numerosImpares: string;
-    arrayPares: string[];
-    arrayImpares: string[];
+    arrayPares: number[];
+    arrayImpares: number[];
 
     constructor() { 
-        this.numeros = ["1", "22", "31", "43", "52", "64", "70"];
+        this.numeros = [1, 22, 31, 43, 52, 64, 70];
         this.numerosPares = "";
         this.numerosImpares = "";
-        this.arrayPares = [""];
-        this.arrayImpares = [""];
+        this.arrayPares = [];
+        this.arrayImpares = [];
+    }
+
+    generarNumero(): void{
+        let numero = Math.floor(Math.random() * 100) + 1;
+        this.numeros.push(numero);
     }
 
     comprobarNumeros(): void{
@@ -29,7 +34,7 @@ export class NumerosEstilosCmp implements OnInit {
         let contadorPares = 0;
         let contadorImpares = 0;
         for (let _numero of this.numeros){
-            if (parseInt(_numero) % 2 == 0){
+            if (_numero % 2 == 0){
                 numPares += _numero + ",";
                 this.arrayPares[contadorPares] = _numero;
                 contadorPares++;
