@@ -4,3 +4,9 @@ h2 {
 label {
     font-style: italic;
 }
+.positivo {
+    color: green;
+}
+.negativo {
+    color: red;
+}

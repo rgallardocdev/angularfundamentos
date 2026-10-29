@@ -17,9 +17,20 @@
     <label>Introduzca un nombre: </label><input type="text" name="cajaNombreListado" #cajaNombreListado/>
     <br><br>
     <button (click)="mostrarNombreListado()">Mostrar Nombre</button>
+    <p>{{mensajeListadoNombres}}</p>    
     <ul>
         @for (_nombre of listadoNombres; track _nombre) {
             <li>{{_nombre}}</li>
+        }
+    </ul>
+    <br><br>
+    <label>Intruduzca un numero: </label><input type="number" name="cajaNumeroListado" #cajaNumeroListado/>
+    <br><br>
+    <button (click)="mostrarNumeroListado(cajaNumeroListado.value)">Mostrar Numero</button>
+    <p>{{mensajeListadoNumeros}}</p>
+    <ul>
+        @for (_numero of listadoNumeros; track _numero){
+            <li [ngClass]="{positivo: _numero >= 0, negativo: _numero < 0}">{{_numero}}</li>
         }
     </ul>
 </form>

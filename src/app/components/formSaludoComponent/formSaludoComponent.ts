@@ -17,14 +17,19 @@ export class FormSaludoComponent implements OnInit {
     @ViewChild ("cajaNumero1") cajaNumero1!: ElementRef;
     @ViewChild ("cajaNumero2") cajaNumero2!: ElementRef;
     @ViewChild ("cajaNombreListado") cajaNombreListado!: ElementRef;
+    @ViewChild ("cajaNumeroListado") cajaNumeroListado!: ElementRef;
 
     mensaje!: string; //esta variable no hace falta inicializarla porque lleva el !
     mensajeSuma: string;
     listadoNombres: string[];
+    mensajeListadoNombres!: string;
+    listadoNumeros: number[];
+    mensajeListadoNumeros!: string;
 
     constructor() {
         this.mensajeSuma = ""; //esta variable la inicializo en el constructor
         this.listadoNombres = [];
+        this.listadoNumeros = [];
      }
 
     ngOnInit() { }
@@ -66,6 +71,19 @@ export class FormSaludoComponent implements OnInit {
             console.log(nombreListado);
             this.listadoNombres.push(nombreListado);
             console.log(this.listadoNombres);
+            this.cajaNombreListado.nativeElement.value = "";
+            this.mensajeListadoNombres = `Tiene ${this.listadoNombres.length} nombres en la lista`;
+        }
+    }
+
+    mostrarNumeroListado(numero: string): void {
+        if (numero == ""){
+            alert("Debe introducir un numero");
+        }
+        else{
+            this.listadoNumeros.push(parseInt(numero));
+            this.cajaNumeroListado.nativeElement.value = "";
+            this.mensajeListadoNumeros = `Tiene ${this.listadoNumeros.length} numeros en la lista`;
         }
     }
 }
